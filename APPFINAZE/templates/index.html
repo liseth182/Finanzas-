@@ -1,3 +1,29 @@
 
 
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Matriz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Matriz Dinámica</h1>
+    <form action="{{ url_for('add_row') }}" method="POST">
+        <button type="submit">Agregar Fila</button>
+    </form>
+    <form action="{{ url_for('add_column') }}" method="POST">
+        <button type="submit">Agregar Columna</button>
+    </form>
+    <table border="1">
+        {% for row in matrix %}
+        <tr>
+            {% for cell in row %}
+            <td>{{ cell }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
